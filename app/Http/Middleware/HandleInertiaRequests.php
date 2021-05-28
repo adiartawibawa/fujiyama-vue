@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'app' => fn () => config('app'),
 
-            'authRoles' => fn () => $request->user() ? $request->user()->getRoleNames()->pluck('name') : null,
+            'authRoles' => fn () => $request->user() ? $request->user()->getRoleNames() : null,
             'authPermissions' => fn () => $request->user() ? $request->user()->getAllPermissions()->pluck('name') : null,
 
             // 'flash' => function () {
